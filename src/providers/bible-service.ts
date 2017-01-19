@@ -30,18 +30,19 @@ export class BibleService {
   ];
 
   private newTestament : IBook[] = [
-    Mt, Mc, Lc, In, Fa, Nm
+    Mt, Mc, Lc, In, Fa
   ];
 
-  constructor(public http: Http) {
+  constructor() {
     console.log('Hello BibleData Provider');
   }
 
-  print(message: string): void {
+  print(message: string): string {
     console.log('Received the message: ' + message)
+    return message;
   }
 
-  GetBooks(testament: string): IBook[] {
+  getBooks(testament: string): IBook[] {
     var books;
     if (testament == "VT") {
       books = this.oldTestament;
@@ -57,19 +58,19 @@ export class BibleService {
     //return books.map((book: IBook) => { return book.longName });
   }
 
-  GetChapters(bookShortName: string) {
+  getChapters(bookShortName: string) {
 
   }
 
-  GetChapterVersets(bookShortName: string, chapterIndex: number) {
+  getChapterVersets(bookShortName: string, chapterIndex: number) {
 
   }
 
-  GetLinkVersets(versetLink: IVersetLink) {
+  getLinkVersets(versetLink: IVersetLink) {
 
   }
 
-  GetVerset(bookShortName: string,
+  getVerset(bookShortName: string,
     chapterIndex: number,
     versetIndex: number) {
 

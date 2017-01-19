@@ -69,7 +69,7 @@ export class Fc implements IBook {
                     notes: [
                         {
                             letter: "d",
-                            text: "Nedeslu&#x15F;it: invizibil sau de-abia vizibil, ca prin abur. Ne&apos;mplinit: ne&apos;ntocmit pe de-a&apos;ntregul; pustiu; gol; de&#x15F;ert, f&#x103;r&#x103; via&#x163;&#x103;. Ebraicul <b>toh&#xFB;-boh&#xFB;</b> sugereaz&#x103; ideea de haos, materie inform&#x103;, creat&#x103; din nimic, dar &#xEE;nc&#x103; neorganizat&#x103;, nedeslu&#x15F;it&#x103;.
+                            text: "Nedeslu&#x15F;it: invizibil sau de-abia vizibil, ca prin abur. Ne&apos;mplinit: ne&apos;ntocmit pe de-a&apos;ntregul; pustiu; gol; de&#x15F;ert, f&#x103;r&#x103; via&#x163;&#x103;. Ebraicul <b>toh&#xFB;-boh&#xFB;</b> sugereaz&#x103; ideea de haos, materie inform&#x103;, creat&#x103; din nimic, dar &#xEE;nc&#x103; neorganizat&#x103;, nedeslu&#x15F;it&#x103;."
                         },
                         {
                             letter: "e",
