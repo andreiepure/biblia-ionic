@@ -25,16 +25,16 @@ import { Nm } from './books/Nm'
 @Injectable()
 export class BibleService {
 
-  private oldTestament : IBook[] = [
-    Fc, Ies, Dt, Lv, Nm
-  ];
-
-  private newTestament : IBook[] = [
-    Mt, Mc, Lc, In, Fa
-  ];
+  private readonly oldTestament : IBook[]; 
+  private readonly newTestament : IBook[];
 
   constructor() {
-    console.log('Hello BibleData Provider');
+    this.oldTestament = [
+      new Fc(), new Ies(), new Dt(), new Lv(), new Nm()
+    ];
+    this.newTestament = [
+      new Mt(), new Mc(), new Lc(), new In(), new Fa()
+    ];
   }
 
   print(message: string): string {
