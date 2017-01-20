@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { IVersetLink } from '../models/verset-link.interface';
 import { IBook } from "../models/book.interface";
+import { MenuItem } from "../models/menu-item";
 
 import { Dt } from './books/Dt'
 import { Fa } from './books/Fa'
@@ -37,9 +37,8 @@ export class BibleService {
     ];
   }
 
-  print(message: string): string {
+  print(message: MenuItem): void {
     console.log('Received the message: ' + message)
-    return message;
   }
 
   getBooks(testament: string): IBook[] {

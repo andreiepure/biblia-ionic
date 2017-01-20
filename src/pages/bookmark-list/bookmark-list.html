@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ title }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor='let bookmark of bookmarks' (click)='navigateTo(bookmark)'>
+      {{ bookmark.targetBookShortName }} {{ bookmark.targetChapter }}, {{ bookmark.targetVersetStart }}
+    </button>
+  </ion-list>
+</ion-content>

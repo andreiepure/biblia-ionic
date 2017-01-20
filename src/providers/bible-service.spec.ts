@@ -18,10 +18,6 @@ describe('Services: BibleService', () => {
   
   beforeEach(() => { bibleService = new BibleService(); });
 
-  it('it should create the service', () => {
-    expect(bibleService.print("hello")).toBe("hello");
-  });
-
   it('getBooks with "VT" should return all and only old testament books', () => {
     let responseNames: string[] =
       bibleService.getBooks("VT").map((book) => { return book.shortName; });

@@ -2,7 +2,11 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+
 import { BibliaHomePage } from '../pages/biblia-home/biblia-home';
+import { BookmarkListPage } from '../pages/bookmark-list/bookmark-list';
+
+import { BookListPage } from '../pages/book-list/book-list';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BibleService } from "../providers/bible-service";
@@ -11,6 +15,8 @@ import { BibleService } from "../providers/bible-service";
   declarations: [
     MyApp,
     BibliaHomePage,
+    BookmarkListPage,
+    BookListPage,
     TabsPage
   ],
   imports: [
@@ -20,6 +26,8 @@ import { BibleService } from "../providers/bible-service";
   entryComponents: [
     MyApp,
     BibliaHomePage,
+    BookmarkListPage,
+    BookListPage,
     TabsPage
   ],
   providers: [BibleService, {provide: ErrorHandler, useClass: IonicErrorHandler}]

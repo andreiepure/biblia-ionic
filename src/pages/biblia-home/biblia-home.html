@@ -1,11 +1,13 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Sfânta Scriptură</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button ion-button round (click)='onClick()'>Test service</button>
-  <button ion-button round (click)='onClick()'>Vechiul testament</button>
-  <button ion-button round (click)='onClick()'>Noul testament</button>
+  <ion-list>
+    <button ion-item *ngFor='let item of menuItems' (click)='navigateTo(item)'>
+      {{ item.text }}
+    </button>
+  </ion-list>
 </ion-content>
