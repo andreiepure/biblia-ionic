@@ -22,11 +22,12 @@ export class Fc implements IBook {
 
     private populateChapters() {
         this.chapters.push({
-            index: 1,
+            number: 1,
+            bookShortName: "Fc",
             description: "Facerea lumii şi a omului.",
             versets: [
                 {
-                    index: 1,
+                    number: 1,
                     text: "Întru'nceput a făcut Dumnezeu cerul şi pământul .",
                     notes: [
                         {
@@ -64,7 +65,7 @@ export class Fc implements IBook {
                     ]
                 },
                 {
-                    index: 2,
+                    number: 2,
                     text: "Dar pământul era nedesluşit şi ne'mplinit ; şi întuneric era deasupra genunii; şi Duhul lui Dumnezeu Se purta pe deasupra apelor.",
                     notes: [
                         {
@@ -92,6 +93,27 @@ export class Fc implements IBook {
                     ]
                 }
             ]
+        });
+
+        this.chapters.push({
+            number: 2,
+            bookShortName: "Fc",
+            description: "Al doilea capitol",
+            versets: []
+        });
+
+        this.chapters.push({
+            number: 3,
+            bookShortName: "Fc",
+            description: "Al treilea capitol",
+            versets: []
+        });
+
+        this.chapters.push({
+            number: 4,
+            bookShortName: "Fc",
+            description: "Al patrulea capitol",
+            versets: []
         });
     }
 }

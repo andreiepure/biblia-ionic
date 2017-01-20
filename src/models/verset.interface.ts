@@ -5,7 +5,7 @@ import { IVersetNote } from './verset-note.interface';
  * A Bible verset
  */
 export interface IVerset {
-    readonly index: number;
+    readonly number: number;
     readonly text: string;
     readonly notes: IVersetNote[];
     readonly links: IVersetLink[];
