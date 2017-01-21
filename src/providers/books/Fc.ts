@@ -98,7 +98,7 @@ export class Fc implements IBook {
         this.chapters.push({
             number: 2,
             bookShortName: "Fc",
-            description: "Al doilea capitol",
+            description: "O descriere foarte lungă a unui capitol; Ideea este să verific cum ajunge pe ecran; Dacă e prea lung, trebuie să gândesc",
             versets: []
         });
 

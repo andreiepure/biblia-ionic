@@ -1,5 +1,6 @@
 import { BibleService }          from './bible-service';
 import { IBook } from "../models/book.interface";
+import { MenuItemType } from "../models/menu-item";
 
 import { Dt } from './books/Dt'
 import { Fa } from './books/Fa'
@@ -20,7 +21,7 @@ describe('Services: BibleService', () => {
 
   it('getBooks with "VT" should return all and only old testament books', () => {
     let responseNames: string[] =
-      bibleService.getBooks("VT").map((book) => { return book.shortName; });
+      bibleService.getBooks(MenuItemType.OldTestament).map((book) => { return book.shortName; });
     let expectedNames: string[] = [ 'Fc', 'Ies', 'Dt', 'Lv', 'Nm' ];
 
     let onlyInResponse = responseNames

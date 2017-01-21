@@ -3,7 +3,9 @@ import 'rxjs/add/operator/map';
 
 import { IVersetLink } from '../models/verset-link.interface';
 import { IBook } from "../models/book.interface";
-import { MenuItem } from "../models/menu-item";
+import { IChapter } from "../models/chapter.interface";
+import { IVerset } from "../models/verset.interface";
+import { MenuItemType } from "../models/menu-item";
 
 import { Dt } from './books/Dt'
 import { Fa } from './books/Fa'
@@ -16,12 +18,6 @@ import { Mc } from './books/Mc'
 import { Mt } from './books/Mt'
 import { Nm } from './books/Nm'
 
-/*
-  Generated class for the BibleData provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class BibleService {
 
@@ -37,32 +33,26 @@ export class BibleService {
     ];
   }
 
-  print(message: MenuItem): void {
-    console.log('Received the message: ' + message)
-  }
-
-  getBooks(testament: string): IBook[] {
-    var books;
-    if (testament == "VT") {
-      books = this.oldTestament;
-    }
-    else if (testament == "NT") {
-      books = this.newTestament;
-    }
-    else {
-      throw ("Unknown testament");
+  getBooks(menuItemType: MenuItemType): IBook[] {
+    let result: IBook[];
+    switch (menuItemType) {
+      case MenuItemType.OldTestament: result = this.oldTestament; break;
+      case MenuItemType.NewTestament: result = this.newTestament; break;
+      case MenuItemType.Extras: result = []; break;
     }
 
-    return books;
+    return result;
     //return books.map((book: IBook) => { return book.longName });
   }
 
-  getChapters(bookShortName: string) {
-
+  getChapters(book: IBook): IChapter[] {
+    // TODO should do a db query
+    return book.chapters;
   }
 
-  getChapterVersets(bookShortName: string, chapterIndex: number) {
-
+  getChapterVersets(chapter: IChapter): IVerset[] {
+    // TODO should do a db query
+    return chapter.versets;
   }
 
   getLinkVersets(versetLink: IVersetLink) {
