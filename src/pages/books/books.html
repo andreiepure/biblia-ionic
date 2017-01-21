@@ -7,12 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>book-list</ion-title>
+    <ion-title>{{ menuItem.text }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor='let book of books' (click)='navigateTo(book)'>
+      {{ book.longName }}
+    </button>
+  </ion-list>
 </ion-content>

@@ -6,7 +6,9 @@ import { MyApp } from './app.component';
 import { BibliaHomePage } from '../pages/biblia-home/biblia-home';
 import { BookmarkListPage } from '../pages/bookmark-list/bookmark-list';
 
-import { BookListPage } from '../pages/book-list/book-list';
+import { BooksPage } from '../pages/books/books';
+import { ChapterListPage } from "../pages/chapter-list/chapter-list";
+import { VersetListPage } from "../pages/verset-list/verset-list";
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BibleService } from "../providers/bible-service";
@@ -16,7 +18,9 @@ import { BibleService } from "../providers/bible-service";
     MyApp,
     BibliaHomePage,
     BookmarkListPage,
-    BookListPage,
+    BooksPage,
+    ChapterListPage,
+    VersetListPage,
     TabsPage
   ],
   imports: [
@@ -27,7 +31,9 @@ import { BibleService } from "../providers/bible-service";
     MyApp,
     BibliaHomePage,
     BookmarkListPage,
-    BookListPage,
+    BooksPage,
+    ChapterListPage,
+    VersetListPage,
     TabsPage
   ],
   providers: [BibleService, {provide: ErrorHandler, useClass: IonicErrorHandler}]

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
+
 import { BibleService } from "../../providers/bible-service";
 import { MenuItem, MenuItemType } from "../../models/menu-item";
-import { BookListPage } from "../book-list/book-list";
+import { BooksPage } from "../books/books";
 
 @Component({
   selector: 'biblia-home',
@@ -15,7 +15,7 @@ export class BibliaHomePage {
 
   readonly menuItems: MenuItem[] = [
     new MenuItem(MenuItemType.OldTestament, "Vechiul Testament"),
-    new MenuItem(MenuItemType.NewTestament, "Vechiul Testament"),
+    new MenuItem(MenuItemType.NewTestament, "Noul Testament"),
     new MenuItem(MenuItemType.Extras, "Anexe")
   ];
 
@@ -23,6 +23,6 @@ export class BibliaHomePage {
   }
 
   navigateTo(menuItem: MenuItem) {
-    this.navCtrl.push(BookListPage, menuItem);
+    this.navCtrl.push(BooksPage, {'data': menuItem});
   }
 }
