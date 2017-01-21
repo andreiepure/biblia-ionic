@@ -1,22 +1,35 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the AddBookmark page.
+import { IVerset } from "../../models/verset.interface";
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import {
+  FormGroup,
+  FormControl
+} from '@angular/forms';
+
 @Component({
   selector: 'page-add-bookmark',
   templateUrl: 'add-bookmark.html'
 })
 export class AddBookmarkPage {
+  public form: FormGroup;
+  public verset: IVerset;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public viewCtrl: ViewController, public navParams: NavParams) {
+    this.verset = navParams.get('data');
+
+    this.form = new FormGroup({
+      bookmarkNote: new FormControl("")
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddBookmarkPage');
+  }
+
+  public done() {
+    this.viewCtrl.dismiss(this.form.value.bookmarkNote);
   }
 
 }

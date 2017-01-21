@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor='let book of books' (click)='navigateTo(book)'>
+    <button ion-item text-wrap *ngFor='let book of books' (click)='navigateTo(book)'>
       {{ book.longName }}
     </button>
   </ion-list>

@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { BibliaHomePage } from '../pages/biblia-home/biblia-home';
 import { BookmarksPage } from '../pages/bookmarks/bookmarks';
 
+import { AddBookmarkPage } from '../pages/add-bookmark/add-bookmark';
 import { BooksPage } from '../pages/books/books';
 import { ChaptersPage } from "../pages/chapters/chapters";
 import { VersetsPage } from "../pages/versets/versets";
@@ -18,6 +19,7 @@ import { BibleService } from "../providers/bible-service";
     MyApp,
     BibliaHomePage,
     BookmarksPage,
+    AddBookmarkPage,
     BooksPage,
     ChaptersPage,
     VersetsPage,
@@ -31,6 +33,7 @@ import { BibleService } from "../providers/bible-service";
     MyApp,
     BibliaHomePage,
     BookmarksPage,
+    AddBookmarkPage,
     BooksPage,
     ChaptersPage,
     VersetsPage,

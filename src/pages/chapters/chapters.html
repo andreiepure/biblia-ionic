@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item
+    <button ion-item text-wrap
       *ngFor='let chapter of chapters; let i = index;'
       (click)='navigateTo(chapter, i)'>
       {{ chapter.number }}: {{ chapter.description }}
