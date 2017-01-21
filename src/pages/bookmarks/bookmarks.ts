@@ -10,10 +10,10 @@ import { IVersetLink } from '../../models/verset-link.interface';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-bookmark-list',
-  templateUrl: 'bookmark-list.html'
+  selector: 'page-bookmarks',
+  templateUrl: 'bookmarks.html'
 })
-export class BookmarkListPage {
+export class BookmarksPage {
 
   public readonly title: string = "Semne de carte"
 

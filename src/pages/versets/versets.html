@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ this.chapter.bookShortName }} - Cap. {{ this.chapter.number }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <i>{{ this.chapter.description }}</i>
+  <ion-list>
+    <ion-item-sliding *ngFor='let verset of versets'>
+      <ion-item>{{ verset.text }}</ion-item>
+      <ion-item-options>
+          <button ion-button color="primary" (click)='showNotes(verset)'>
+            <ion-icon name="help"></ion-icon>
+            Explicații
+          </button>
+          <button ion-button color="secondary" (click)='showLinks(verset)'>
+            <ion-icon name="ios-list-outline"></ion-icon>
+            Trimiteri
+          </button>
+          <button ion-button color="light" (click)='addBookmark(verset)'>
+            <ion-icon name="bookmark"></ion-icon>
+            Pune semn
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

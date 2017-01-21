@@ -4,11 +4,11 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { BibliaHomePage } from '../pages/biblia-home/biblia-home';
-import { BookmarkListPage } from '../pages/bookmark-list/bookmark-list';
+import { BookmarksPage } from '../pages/bookmarks/bookmarks';
 
 import { BooksPage } from '../pages/books/books';
-import { ChapterListPage } from "../pages/chapter-list/chapter-list";
-import { VersetListPage } from "../pages/verset-list/verset-list";
+import { ChaptersPage } from "../pages/chapters/chapters";
+import { VersetsPage } from "../pages/versets/versets";
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BibleService } from "../providers/bible-service";
@@ -17,10 +17,10 @@ import { BibleService } from "../providers/bible-service";
   declarations: [
     MyApp,
     BibliaHomePage,
-    BookmarkListPage,
+    BookmarksPage,
     BooksPage,
-    ChapterListPage,
-    VersetListPage,
+    ChaptersPage,
+    VersetsPage,
     TabsPage
   ],
   imports: [
@@ -30,10 +30,10 @@ import { BibleService } from "../providers/bible-service";
   entryComponents: [
     MyApp,
     BibliaHomePage,
-    BookmarkListPage,
+    BookmarksPage,
     BooksPage,
-    ChapterListPage,
-    VersetListPage,
+    ChaptersPage,
+    VersetsPage,
     TabsPage
   ],
   providers: [BibleService, {provide: ErrorHandler, useClass: IonicErrorHandler}]

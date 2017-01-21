@@ -4,7 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { BibleService } from "../../providers/bible-service";
 import { IBook } from "../../models/book.interface";
 import { MenuItem } from "../../models/menu-item";
-import { ChapterListPage } from "../chapter-list/chapter-list";
+import { ChaptersPage } from "../chapters/chapters";
 
 @Component({
   selector: 'page-books',
@@ -23,6 +23,6 @@ export class BooksPage {
   }
 
   navigateTo(book: IBook) {
-    this.navCtrl.push(ChapterListPage, {'data': book});
+    this.navCtrl.push(ChaptersPage, {'data': book});
   }
 }
