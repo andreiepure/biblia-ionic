@@ -11,11 +11,13 @@
       <ion-item *ngFor='let lv of this.linkedVersets' (click)='toggleDetails(lv)'>
        <i padding> {{ lv.link.targetBookShortName }} {{ lv.link.targetChapter }}, {{ lv.link.targetVersetStart }} - {{ lv.link.targetVersetEnd }}</i>
       <div *ngIf="lv.showDetails">
-        <ion-list>
+          <ul>
+            <li *ngFor='let verset of lv.versets'>{{verset.text}}</li>
+          </ul>
+          <!--
           <ion-item text-wrap ngFor*='let verset of lv.versets'>
             {{verset.number}}. {{verset.text}}
-          </ion-item>
-        </ion-list>
+          </ion-item>-->
       </div>
       </ion-item>
   </ion-list>
