@@ -10,6 +10,8 @@ import { AddBookmarkPage } from '../pages/add-bookmark/add-bookmark';
 import { BooksPage } from '../pages/books/books';
 import { ChaptersPage } from "../pages/chapters/chapters";
 import { VersetsPage } from "../pages/versets/versets";
+import { VersetLinksPage } from "../pages/verset-links/verset-links";
+import { VersetNotesPage } from "../pages/verset-notes/verset-notes";
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { BibleService } from "../providers/bible-service";
@@ -23,6 +25,8 @@ import { BibleService } from "../providers/bible-service";
     BooksPage,
     ChaptersPage,
     VersetsPage,
+    VersetLinksPage,
+    VersetNotesPage,
     TabsPage
   ],
   imports: [
@@ -37,6 +41,8 @@ import { BibleService } from "../providers/bible-service";
     BooksPage,
     ChaptersPage,
     VersetsPage,
+    VersetLinksPage,
+    VersetNotesPage,
     TabsPage
   ],
   providers: [BibleService, {provide: ErrorHandler, useClass: IonicErrorHandler}]

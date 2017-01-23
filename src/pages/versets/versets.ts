@@ -6,6 +6,8 @@ import { IChapter } from "../../models/chapter.interface";
 import { IVerset } from "../../models/verset.interface";
 
 import { AddBookmarkPage } from "../add-bookmark/add-bookmark";
+import { VersetLinksPage } from "../verset-links/verset-links";
+import { VersetNotesPage } from "../verset-notes/verset-notes";
 
 @Component({
   selector: 'page-versets',
@@ -28,18 +30,34 @@ export class VersetsPage {
   }
 
   public showNotes(verset: IVerset) {
+     let versetLinksPage = this.modalCtrl.create(VersetLinksPage,
+      { verset: verset, chapter: this.chapter }
+    );
 
+    versetLinksPage.present();
   }
 
   public showLinks(verset: IVerset) {
+    let versetLinksPage = this.modalCtrl.create(VersetLinksPage,
+      { verset: verset, chapter: this.chapter }
+    );
 
+    versetLinksPage.present();
   }
 
   public addBookmark(verset: IVerset) {
-    let addBookmarkModal = this.modalCtrl.create(AddBookmarkPage, { data: verset });
+    // show show only if a bookmark isn't there already
+    // if the bookmark is there, show the bookmark
+    // TODO check if bookmark exists
+
+    let addBookmarkModal = this.modalCtrl.create(AddBookmarkPage,
+      { verset: verset, chapter: this.chapter }
+    );
+
     addBookmarkModal.onDidDismiss(data => {
      console.log(data);
     });
+
     addBookmarkModal.present();
   }
 
