@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
+import { IVersetNote } from '../models/verset-note.interface';
 import { IVersetLink } from '../models/verset-link.interface';
 import { IBook } from "../models/book.interface";
 import { IChapter } from "../models/chapter.interface";
 import { IVerset } from "../models/verset.interface";
+
 import { MenuItemType } from "../models/menu-item";
 
 import { Dt } from './books/Dt'
@@ -55,8 +57,38 @@ export class BibleService {
     return chapter.versets;
   }
 
-  getLinkVersets(versetLink: IVersetLink) {
+  // Given a verset, it retrieves the links to other versets
+  getLinks(verset: IVerset): IVersetLink[] {
+    // TODO query
+    return verset.links;
+  }
 
+  getNotes(verset: IVerset): IVersetNote[] {
+    // TODO query
+    return verset.notes;
+  }
+
+  getLinkedVersets(versetLink: IVersetLink): IVerset[] {
+    return [
+      {
+        links: [],
+        notes: [],
+        number: 5,
+        text: 'X y z'
+      },
+      {
+        links: [],
+        notes: [],
+        number: 6,
+        text: 'X y z'
+      },
+      {
+        links: [],
+        notes: [],
+        number: 7,
+        text: 'x y z'
+      }
+    ];
   }
 
   getVerset(bookShortName: string,
