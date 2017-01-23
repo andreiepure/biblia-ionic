@@ -6,7 +6,8 @@
 
 <ion-content padding>
   <!-- Add the verset 'address' here -->
-  <i padding>Notiță opțională</i>
+  <i padding>{{ this.chapter.bookShortName }} {{ this.chapter.number }}, {{ this.verset.number }}</i>
+  <i padding>{{ this.verset.text }} </i>
   <form (submit)="done()" [formGroup]="form">
     <ion-item>
       <ion-input formControlName="bookmarkNote" type="text"></ion-input>
