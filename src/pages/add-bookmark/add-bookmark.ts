@@ -36,6 +36,10 @@ export class AddBookmarkPage {
     console.log('ionViewDidLoad AddBookmarkPage');
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
   public done() {
     this.viewCtrl.dismiss(this.form.value.bookmarkNote);
   }

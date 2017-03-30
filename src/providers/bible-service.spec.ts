@@ -1,17 +1,7 @@
+import {} from 'jasmine';
 import { BibleService }          from './bible-service';
-import { IBook } from "../models/book.interface";
 import { MenuItemType } from "../models/menu-item";
 
-import { Dt } from './books/Dt'
-import { Fa } from './books/Fa'
-import { Fc } from './books/Fc'
-import { Ies } from './books/Ies'
-import { In } from './books/In'
-import { Lc } from './books/Lc'
-import { Lv } from './books/Lv'
-import { Mc } from './books/Mc'
-import { Mt } from './books/Mt'
-import { Nm } from './books/Nm'
 
 
 describe('Services: BibleService', () => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
 import { BibleService } from "../../providers/bible-service";
 import { IChapter } from "../../models/chapter.interface";
@@ -16,7 +16,7 @@ export class VersetLinksPage {
   // TODO this has to be observable, as it gets loaded dynamically
   public readonly linkedVersets: LinkWithVersets[];
 
-  constructor(public navCtrl: NavController,
+  constructor(public viewCtrl: ViewController,
     navParams: NavParams,
     private bibleService: BibleService) {
 
@@ -40,11 +40,16 @@ export class VersetLinksPage {
     }
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
+
   // we add the linked versets to the links
   ionViewDidLoad() {
     this.linkedVersets.forEach(decoratedLink /* not yet with versets */ => {
       let versets: IVerset[] = this.bibleService.getLinkedVersets(decoratedLink.link);
       versets.forEach(verset => {
+        // TODO return promise  in the constructor + async pipe in the html
         decoratedLink.versets.push(verset);
       });
     });

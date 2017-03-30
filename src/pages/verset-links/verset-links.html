@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Legături biblice</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +17,8 @@
        <i padding> {{ lv.link.targetBookShortName }} {{ lv.link.targetChapter }}, {{ lv.link.targetVersetStart }} - {{ lv.link.targetVersetEnd }}</i>
       <div *ngIf="lv.showDetails">
           <ul>
-            <li *ngFor='let verset of lv.versets'>{{verset.text}}</li>
+            <li text-wrap *ngFor='let verset of lv.versets'>{{verset.text}}</li>
           </ul>
-          <!--
-          <ion-item text-wrap ngFor*='let verset of lv.versets'>
-            {{verset.number}}. {{verset.text}}
-          </ion-item>-->
       </div>
       </ion-item>
   </ion-list>

@@ -14,6 +14,8 @@ import { VersetLinksPage } from "../pages/verset-links/verset-links";
 import { VersetNotesPage } from "../pages/verset-notes/verset-notes";
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { WrapInnerhtmlPipe } from "../pipes/wrap-innerhtml";
+
 import { BibleService } from "../providers/bible-service";
 
 @NgModule({
@@ -27,7 +29,8 @@ import { BibleService } from "../providers/bible-service";
     VersetsPage,
     VersetLinksPage,
     VersetNotesPage,
-    TabsPage
+    TabsPage,
+    WrapInnerhtmlPipe
   ],
   imports: [
     IonicModule.forRoot(MyApp)

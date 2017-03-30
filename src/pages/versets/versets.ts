@@ -30,11 +30,11 @@ export class VersetsPage {
   }
 
   public showNotes(verset: IVerset) {
-     let versetLinksPage = this.modalCtrl.create(VersetLinksPage,
+    let versetNotesPage = this.modalCtrl.create(VersetNotesPage,
       { verset: verset, chapter: this.chapter }
     );
 
-    versetLinksPage.present();
+    versetNotesPage.present();
   }
 
   public showLinks(verset: IVerset) {

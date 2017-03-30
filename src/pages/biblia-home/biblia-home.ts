@@ -5,6 +5,7 @@ import { BibleService } from "../../providers/bible-service";
 import { MenuItem, MenuItemType } from "../../models/menu-item";
 import { BooksPage } from "../books/books";
 
+
 @Component({
   selector: 'biblia-home',
   templateUrl: 'biblia-home.html'

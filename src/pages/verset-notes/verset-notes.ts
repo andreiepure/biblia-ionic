@@ -1,22 +1,31 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the VersetNotes page.
+import { BibleService } from "../../providers/bible-service";
+import { IChapter } from "../../models/chapter.interface";
+import { IVerset } from "../../models/verset.interface";
+import { IVersetNote } from "../../models/verset-note.interface";
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-verset-notes',
   templateUrl: 'verset-notes.html'
 })
 export class VersetNotesPage {
+  public readonly verset: IVerset;
+  public readonly chapter: IChapter;
+  // TODO this has to be observable, as it gets loaded dynamically
+  public readonly notes: IVersetNote[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public viewCtrl: ViewController,
+    navParams: NavParams,
+    private bibleService: BibleService) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VersetNotesPage');
+    this.chapter = navParams.get('chapter');
+    this.verset = navParams.get('verset');
+    this.notes = this.bibleService.getNotes(this.verset);
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }
