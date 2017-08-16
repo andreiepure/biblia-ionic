@@ -1,6 +1,8 @@
 {
   "name": "biblia-ionic-start",
   "app_id": "",
-  "v2": true,
-  "typescript": true
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }
