@@ -18,6 +18,8 @@ import { WrapInnerhtmlPipe } from "../pipes/wrap-innerhtml";
 
 import { BibleService } from "../providers/bible-service";
 
+import { SQLite } from '@ionic-native/sqlite';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -48,6 +50,9 @@ import { BibleService } from "../providers/bible-service";
     VersetNotesPage,
     TabsPage
   ],
-  providers: [BibleService, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    BibleService,
+    SQLite,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
