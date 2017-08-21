@@ -16,8 +16,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { WrapInnerhtmlPipe } from "../pipes/wrap-innerhtml";
 
-import { BibleService } from "../providers/bible-service";
-
 import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
@@ -51,7 +49,6 @@ import { SQLite } from '@ionic-native/sqlite';
     TabsPage
   ],
   providers: [
-    BibleService,
     SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

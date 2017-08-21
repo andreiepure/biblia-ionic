@@ -3,8 +3,9 @@
  * in a Bible book
  */
 export interface IVersetLink {
-    readonly targetBookShortName: string;
-    readonly targetChapter: number;
-    readonly targetVersetStart: number;
-    readonly targetVersetEnd: number;
+    readonly id: number;
+    readonly sourceVersetId: number;
+    readonly targetChapterId: number;
+    readonly targetVersetNumberStart: number;
+    readonly targetVersetNumberEnd: number;
 }

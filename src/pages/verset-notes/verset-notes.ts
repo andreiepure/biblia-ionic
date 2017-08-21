@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController, NavParams } from 'ionic-angular';
 
-import { BibleService } from "../../providers/bible-service";
 import { IChapter } from "../../models/chapter.interface";
 import { IVerset } from "../../models/verset.interface";
 import { IVersetNote } from "../../models/verset-note.interface";
@@ -17,12 +16,10 @@ export class VersetNotesPage {
   public readonly notes: IVersetNote[];
 
   constructor(public viewCtrl: ViewController,
-    navParams: NavParams,
-    private bibleService: BibleService) {
+    navParams: NavParams) {
 
     this.chapter = navParams.get('chapter');
     this.verset = navParams.get('verset');
-    this.notes = this.bibleService.getNotes(this.verset);
   }
 
   dismiss() {

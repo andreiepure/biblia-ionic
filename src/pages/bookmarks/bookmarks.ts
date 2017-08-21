@@ -18,8 +18,7 @@ export class BookmarksPage {
   public readonly title: string = "Semne de carte"
 
   public readonly bookmarks: IVersetLink[] = [
-    { targetBookShortName: "Fc", targetChapter: 1, targetVersetStart: 1, targetVersetEnd: 1 },
-    { targetBookShortName: "Mc", targetChapter: 1, targetVersetStart: 2, targetVersetEnd: 2 }
+    { id: 1, sourceVersetId: 1, targetChapterId: 2, targetVersetNumberStart: 2, targetVersetNumberEnd: 2 }
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}

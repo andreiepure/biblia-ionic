@@ -1,12 +1,11 @@
-import { IVerset } from "./verset.interface";
+//import { IBook } from "./book.interface";
 
 /**
  * Definition of the chapter of a Bible book
  */
 export interface IChapter {
-    // TODO
-    readonly bookShortName: string;
+    readonly id: number;
+    readonly bookId: number;
     readonly number: number;
-    readonly description: string;
-    readonly versets: IVerset[];
+    readonly title: string;
 }

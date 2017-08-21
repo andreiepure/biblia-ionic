@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Loading, LoadingController, NavController, NavParams } from 'ionic-angular';
 
-import { BibleService } from "../../providers/bible-service";
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+
 import { IChapter } from "../../models/chapter.interface";
 import { IBook } from "../../models/book.interface";
 import { VersetsPage } from "../versets/versets";
@@ -11,16 +12,21 @@ import { VersetsPage } from "../versets/versets";
   templateUrl: 'chapters.html'
 })
 export class ChaptersPage {
+  private loading: Loading;
   public readonly book: IBook;
   public readonly chapters: IChapter[];
 
+  private options = { name: "bible.db", location: 'default', createFromLocation: 1 };
+  private queryNames;
+
   constructor(public navCtrl: NavController,
     navParams: NavParams,
-    private bibleService: BibleService) {
+    private loadingCtrl: LoadingController,
+    private sqlite: SQLite) {
 
     this.book = navParams.get('data');
-    // TODO should be sorted
-    this.chapters = this.bibleService.getChapters(this.book);
+    let bookId = this.book.id;
+    this.queryNames = `SELECT rowid AS id, bookId, number, title FROM Chapters WHERE bookId = ${bookId}`;
   }
 
   /**
@@ -45,4 +51,30 @@ export class ChaptersPage {
       ? index + 1
       : null;
   }
+
+  ionViewWillEnter() {
+    // Starts the process 
+    this.loading = this.loadingCtrl.create({
+      content: "Răbdare, răbdare, răbdare..."
+    });
+
+    this.loading.present();
+
+    // Get the Async information 
+    this.getAsyncData();
+  }
+
+  private getAsyncData() {
+    this.sqlite.create(this.options).then((db: SQLiteObject) => {
+      db.executeSql(this.queryNames, {}).then((data) => {
+        let rows = data.rows;
+        for (let i = 0; i < rows.length; i++) {
+          this.chapters.push(rows.item(i));
+        }
+
+        this.loading.dismiss();
+      })
+    });
+  }
+
 }

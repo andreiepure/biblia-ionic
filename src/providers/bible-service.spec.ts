@@ -1,4 +1,5 @@
 import {} from 'jasmine';
+/*
 import { BibleService }          from './bible-service';
 import { MenuItemType } from "../models/menu-item";
 
@@ -25,3 +26,4 @@ describe('Services: BibleService', () => {
   });
 });
 
+*/

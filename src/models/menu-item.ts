@@ -1,19 +1,14 @@
-export enum MenuItemType
-{
-    OldTestament,
-    NewTestament,
-    Extras
-}
-
 /**
  * An item in the main menu
  */
 export class MenuItem {
-    readonly type: MenuItemType;
-    readonly text: string;
+    readonly id: number;
+    readonly shortName: string;
+    readonly longName: string;
 
-    constructor(type: MenuItemType, text: string) {
-        this.type = type;
-        this.text = text;
+    constructor(id: number, shortName: string, longName: string) {
+        this.id = id;
+        this.shortName = shortName;
+        this.longName = longName;
     }
 }
