@@ -19,7 +19,6 @@ export class BibliaHomePage {
 
   // sqlite
   private options = { name: "bible.db", location: 'default', createFromLocation: 1 };
-  private queryNames = "SELECT rowid AS id, shortName, longName FROM Testaments;";
 
   constructor(public loadingCtrl: LoadingController,
     public navCtrl: NavController, private sqlite: SQLite) {
@@ -31,19 +30,30 @@ export class BibliaHomePage {
 
   ionViewWillEnter() {
     // Starts the process 
-    this.loading = this.loadingCtrl.create({
-      content: "Răbdare, răbdare, răbdare..."
-    });
 
-    this.loading.present();
+    if (this.menuItems.length == 0) {
+      this.loading = this.loadingCtrl.create({
+        content: "Răbdare, răbdare, răbdare..."
+      });
 
-    // Get the Async information 
-    this.getAsyncData();
+      this.loading.present();
+
+      // Get the Async information 
+      this.getAsyncData();
+    }
+  }
+
+  ionViewDidLeave () {
+      this.loading.dismiss();
   }
 
   private getAsyncData() {
+
+    let queryNames = "SELECT rowid AS id, shortName, longName FROM Testaments;";
+    console.log('Biblia home will query');
+
     this.sqlite.create(this.options).then((db: SQLiteObject) => {
-      db.executeSql(this.queryNames, {}).then((data) => {
+      db.executeSql(queryNames, {}).then((data) => {
         let rows = data.rows;
         for (let i = 0; i < rows.length; i++) {
           this.menuItems.push(rows.item(i));

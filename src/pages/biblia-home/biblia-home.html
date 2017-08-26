@@ -8,6 +8,8 @@
   <ion-list>
     <button ion-item *ngFor='let menuItem of menuItems' (click)='navigateTo(menuItem)'>
       {{ menuItem.longName }}
+      -
+      {{ menuItem.id }}
     </button>
   </ion-list>
 </ion-content>

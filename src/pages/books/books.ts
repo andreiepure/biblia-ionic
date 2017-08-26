@@ -18,7 +18,6 @@ export class BooksPage {
   public readonly menuItem: MenuItem;
 
   private options = { name: "bible.db", location: 'default', createFromLocation: 1 };
-  private queryNames;
 
   constructor(public navCtrl: NavController,
     navParams: NavParams,
@@ -26,8 +25,6 @@ export class BooksPage {
     private sqlite: SQLite) {
 
     this.menuItem = navParams.get('data');
-    let testamentId = this.menuItem.id;
-    this.queryNames = `SELECT rowid AS id, testamentId, shortName, longName FROM Books WHERE testamentId = ${testamentId}`;
   }
 
   navigateTo(book: IBook) {
@@ -35,20 +32,33 @@ export class BooksPage {
   }
 
   ionViewWillEnter() {
-    // Starts the process 
-    this.loading = this.loadingCtrl.create({
-      content: "Răbdare, răbdare, răbdare..."
-    });
 
-    this.loading.present();
+    if (this.books.length == 0) {
+      // Starts the process 
+      this.loading = this.loadingCtrl.create({
+        content: "Răbdare, răbdare, răbdare..."
+      });
 
-    // Get the Async information 
-    this.getAsyncData();
+      this.loading.present();
+
+      // Get the Async information 
+      this.getAsyncData();
+    }
+  }
+
+  ionViewDidLeave () {
+      this.loading.dismiss();
   }
 
   private getAsyncData() {
+    let testamentId = this.menuItem.id;
+    let queryNames = 'SELECT rowid AS id, testamentId, shortName, longName FROM Books WHERE testamentId = ' + testamentId;
+
+    console.log(`Books - Will query ${queryNames}`);
+    console.log('Books - Will query ' + queryNames + ' testamentId ' + testamentId); 
+
     this.sqlite.create(this.options).then((db: SQLiteObject) => {
-      db.executeSql(this.queryNames, {}).then((data) => {
+      db.executeSql(queryNames, {}).then((data) => {
         let rows = data.rows;
         for (let i = 0; i < rows.length; i++) {
           this.books.push(rows.item(i));

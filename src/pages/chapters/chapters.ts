@@ -25,8 +25,6 @@ export class ChaptersPage {
     private sqlite: SQLite) {
 
     this.book = navParams.get('data');
-    let bookId = this.book.id;
-    this.queryNames = `SELECT rowid AS id, bookId, number, title FROM Chapters WHERE bookId = ${bookId}`;
   }
 
   /**
@@ -53,20 +51,32 @@ export class ChaptersPage {
   }
 
   ionViewWillEnter() {
-    // Starts the process 
-    this.loading = this.loadingCtrl.create({
-      content: "Răbdare, răbdare, răbdare..."
-    });
+    if (this.chapters.length == 0) {
+      // Starts the process 
+      this.loading = this.loadingCtrl.create({
+        content: "Răbdare, răbdare, răbdare..."
+      });
 
-    this.loading.present();
+      this.loading.present();
 
-    // Get the Async information 
-    this.getAsyncData();
+      // Get the Async information 
+      this.getAsyncData();
+    }
+  }
+
+  ionViewDidLeave () {
+      this.loading.dismiss();
   }
 
   private getAsyncData() {
+    let bookId = this.book.id;
+    let queryNames = 'SELECT rowid AS id, bookId, number, title FROM Chapters WHERE bookId = ' + bookId;
+
+    console.log(`Chapters - Will query ${queryNames}`);
+    console.log('Chapters - Will query ' + queryNames + ' bookId ' + bookId); 
+
     this.sqlite.create(this.options).then((db: SQLiteObject) => {
-      db.executeSql(this.queryNames, {}).then((data) => {
+      db.executeSql(queryNames, {}).then((data) => {
         let rows = data.rows;
         for (let i = 0; i < rows.length; i++) {
           this.chapters.push(rows.item(i));
