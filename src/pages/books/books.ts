@@ -31,7 +31,7 @@ export class BooksPage {
     this.navCtrl.push(ChaptersPage, {'data': book});
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
 
     if (this.books.length == 0) {
       // Starts the process 

@@ -28,7 +28,7 @@ export class BibliaHomePage {
     this.navCtrl.push(BooksPage, {'data': menuItem});
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
     // Starts the process 
 
     if (this.menuItems.length == 0) {

@@ -50,7 +50,7 @@ export class ChaptersPage {
       : null;
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
     if (this.chapters.length == 0) {
       // Starts the process 
       this.loading = this.loadingCtrl.create({

@@ -71,7 +71,7 @@ export class VersetsPage {
     console.log('ionViewDidLoad VersetListPage');
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
     if (this.versets.length == 0) {
       // Starts the process 
       this.loading = this.loadingCtrl.create({
